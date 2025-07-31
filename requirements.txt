@@ -3,3 +3,15 @@ pydantic==2.11.7
 uvicorn==0.35.0
 fastapi==0.116.1
 pillow==11.3.0
+trimesh==4.7.1
+diffusers==0.34.0
+accelerate==1.9.0
+einops==0.8.1
+opencv-python==4.12.0.88
+transformers==4.54.1
+xatlas==0.0.11
+pymeshlab==2025.7
+pygltflib==1.16.5
+scikit-learn==1.7.1
+scikit-image==0.25.2
+pybind11==3.0.0

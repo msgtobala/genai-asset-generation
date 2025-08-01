@@ -40,7 +40,8 @@ class Hunyuan3DGenerationPipeline:
         mesh.export(f'mesh.glb')
 
         # Texture generation
-        # pipeline = Hunyuan3DPaintPipeline.from_pretrained('tencent/Hunyuan3D-2')
-        # mesh = pipeline(mesh, image='../../inputs/left.png')
-        # print("Generated mesh")
-
+        pipeline_texgen = Hunyuan3DPaintPipeline.from_pretrained('tencent/Hunyuan3D-2')
+        mesh = pipeline_texgen(mesh, image=images)
+        mesh.export('demo_textured_mv.glb')
+        print("Generated mesh")
+# 

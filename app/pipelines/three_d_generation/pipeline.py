@@ -1,5 +1,6 @@
 from pathlib import Path
 from PIL import Image
+from .components.preprocessor import ViewPreprocessor3D
 from .components.shape_generator import ShapeGenerator3D
 from .components.texture_generator import TextureGenerator3D
 

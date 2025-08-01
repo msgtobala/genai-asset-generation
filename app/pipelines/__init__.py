@@ -1,0 +1,1 @@
+from .three_d_generation import Hunyuan3DGenerationPipeline

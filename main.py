@@ -10,7 +10,7 @@ from app.api.routes import video_router
 
 load_dotenv()
 
-app = FastAPI(title="Nuvexa backend", version="1.0.0")
+app = FastAPI(title="Concert backend", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,
@@ -27,7 +27,7 @@ app.include_router(three_d_router)
 
 @app.get("/")
 def root():
-    return {"message": "Nuvexa backend is running"}
+    return {"message": "Concert backend is running"}
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

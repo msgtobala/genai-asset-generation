@@ -1,18 +1,18 @@
 from pathlib import Path
 from PIL import Image
-from .components.preprocessor import ViewPreprocessor3D
-from .components.shape_generator import ShapeGenerator3D
-from .components.texture_generator import TextureGenerator3D
+from .components.shapegen import Hunyuan3DDiTFlowMatchingPipeline
+from .components.texgen import Hunyuan3DPaintPipeline
 
 class Hunyuan3DGenerationPipeline:
-    def __init__(self, input_dir: str = "inputs", output_dir: str = "outputs"):
-        self.input_dir = Path(input_dir)
-        self.output_dir = Path(output_dir)
-        self.output_dir.mkdir(parents=True, exist_ok=True)
-
-        self.shape_gen = ShapeGenerator3D()
-        self.texture_gen = TextureGenerator3D()
-
+    def __init__(self):
+        self.shape_gen = Hunyuan3DDiTFlowMatchingPipeline()
+        self.texture_gen = Hunyuan3DPaintPipeline()
+    
     def generate(self):
-        return "OK"
+        pipeline = Hunyuan3DDiTFlowMatchingPipeline.from_pretrained('tencent/Hunyuan3D-2')
+        mesh = pipeline(image='../../inputs/left.png')[0]
+
+        pipeline = Hunyuan3DPaintPipeline.from_pretrained('tencent/Hunyuan3D-2')
+        mesh = pipeline(mesh, image='../../inputs/left.png')
+        print("Generated mesh")
 
